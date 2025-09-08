@@ -1,0 +1,78 @@
+/* ตั้งค่าเบื้องต้น */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f7f6; /* พาสเทลอ่อนๆ */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Container สำหรับทั้งสองคอลัมน์ */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* รองรับหน้าจอเล็ก */
+}
+
+/* Card ของแต่ละคน */
+.card {
+    background-color: #fff3f8; /* พาสเทลชมพูอ่อน */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    width: 300px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* รูปโปรไฟล์ */
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #ffd6e8; /* ขอบพาสเทลชมพู */
+}
+
+/* ชื่อ */
+.card h2 {
+    margin: 10px 0 5px;
+    color: #444;
+    font-size: 22px;
+}
+
+/* ตำแหน่งหรือบทบาท */
+.card h4 {
+    margin: 5px 0 15px;
+    color: #777;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+/* ข้อมูลเพิ่มเติม */
+.card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ปรับให้มือถือ */
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

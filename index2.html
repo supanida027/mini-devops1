@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>แนะนำตัวนักศึกษา</title>
+  <!-- ฟอนต์ Mali จาก Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #fdfdfd;
+      font-family: 'Mali', cursive;
+      display: flex;
+      justify-content: center;
+    }
+    .card {
+      max-width: 900px;
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border: 1px solid #e2e8f0;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      overflow: hidden;
+    }
+    @media (max-width: 700px) {
+      .card { grid-template-columns: 1fr; }
+    }
+    .photo-card {
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .photo-card img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .photo-card img:hover {
+      transform: scale(1.05);
+    }
+    .content {
+      padding: 20px;
+    }
+    .name {
+      font-size: 28px;
+      margin: 0;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .sid {
+      color: #0ea5e9;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .section {
+      margin-top: 16px;
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #0ea5e9;
+      font-weight: 600;
+    }
+    p {
+      margin: 0;
+      line-height: 1.7;
+      font-weight: 400;
+      color: #334155;
+    }
+    .list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 700px) {
+      .list { grid-template-columns: 1fr; }
+    }
+    .item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .label {
+      display: block;
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 4px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- การ์ดรูปภาพ -->
+    <div class="photo-card">
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800&auto=format&fit=crop" alt="รูปโปรไฟล์">
+    </div>
+
+    <!-- เนื้อหา -->
+    <div class="content">
+      <h1 class="name">ชื่อ-นามสกุล นักศึกษา</h1>
+      <div class="sid">รหัสนักศึกษา: 65XXXXXXXX</div>
+
+      <div class="section">
+        <h2>ประวัติ / แนะนำตัว</h2>
+        <p>
+          สวัสดีค่ะ/ครับ ฉันชื่อ …… กำลังศึกษาอยู่ที่ …… คณะ …… สาขา …… 
+          สนใจด้าน …… มีทักษะพื้นฐาน เช่น HTML, CSS, JavaScript 
+          และการทำงานร่วมกันเป็นทีม
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>ข้อมูลพื้นฐาน</h2>
+        <div class="list">
+          <div class="item">
+            <span class="label">สถาบัน</span>
+            <span>มหาวิทยาลัย / วิทยาลัย ของฉัน</span>
+          </div>
+          <div class="item">
+            <span class="label">สาขา</span>
+            <span>เทคโนโลยีสารสนเทศ</span>
+          </div>
+          <div class="item">
+            <span class="label">อีเมล</span>
+            <span>student@example.com</span>
+          </div>
+          <div class="item">
+            <span class="label">ความสนใจ</span>
+            <span>Web Dev, UI/UX, Data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
