@@ -3,142 +3,190 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>แนะนำตัวนักศึกษา</title>
-  <!-- ฟอนต์ Mali จาก Google Fonts -->
+  <title>แนะนำตัวสมาชิก</title>
+  <!-- ฟอนต์ Mali -->
   <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 20px;
+      padding: 30px;
       background: #fdfdfd;
+      font-family: 'Mali', cursive;  /* ใช้ฟอนต์ Mali ทั้งหมด */
+    }
+    h1.title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #0ea5e9;
       font-family: 'Mali', cursive;
-      display: flex;
-      justify-content: center;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
     }
     .card {
-      max-width: 900px;
-      width: 100%;
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       border: 1px solid #e2e8f0;
-      display: grid;
-      grid-template-columns: 300px 1fr;
       overflow: hidden;
-    }
-    @media (max-width: 700px) {
-      .card { grid-template-columns: 1fr; }
-    }
-    .photo-card {
-      padding: 16px;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
+      transition: transform 0.3s;
+      font-family: 'Mali', cursive;
     }
-    .photo-card img {
+    .card:hover { transform: translateY(-5px); }
+    .photo { height: 250px; overflow: hidden; }
+    .photo img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.3s;
     }
-    .photo-card img:hover {
-      transform: scale(1.05);
-    }
-    .content {
-      padding: 20px;
-    }
-    .name {
-      font-size: 28px;
-      margin: 0;
-      font-weight: 600;
-      color: #1e293b;
-    }
-    .sid {
-      color: #0ea5e9;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-    .section {
-      margin-top: 16px;
-    }
-    h2 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      color: #0ea5e9;
-      font-weight: 600;
-    }
-    p {
-      margin: 0;
-      line-height: 1.7;
-      font-weight: 400;
-      color: #334155;
-    }
-    .list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    @media (max-width: 700px) {
-      .list { grid-template-columns: 1fr; }
-    }
-    .item {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+    .photo img:hover { transform: scale(1.05); }
+    .content { padding: 20px; font-family: 'Mali', cursive; }
+    .name { font-size: 24px; margin: 0; font-weight: 600; color: #1e293b; }
+    .sid { color: #0ea5e9; font-weight: 500; margin-bottom: 12px; }
+    .section { margin-top: 12px; }
+    h2 { margin: 0 0 8px; font-size: 18px; color: #0ea5e9; font-weight: 600; }
+    p { margin: 0; line-height: 1.6; font-weight: 400; color: #334155; }
+
+    /* ปุ่มอ่านต่อ */
+    .btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 16px;
+      background-color: #0ea5e9;
+      color: #fff;
+      border: none;
       border-radius: 8px;
-      padding: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Mali', cursive;  /* ใช้ฟอนต์ Mali */
+      transition: background 0.3s;
     }
-    .label {
-      display: block;
-      font-size: 13px;
-      color: #64748b;
-      margin-bottom: 4px;
-      font-weight: 400;
+    .btn:hover { background-color: #0284c7; }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      font-family: 'Mali', cursive;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      font-family: 'Mali', cursive;
+    }
+    .close {
+      position: absolute;
+      top: 10px; right: 16px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      font-family: 'Mali', cursive;
     }
   </style>
 </head>
 <body>
+
+<h1 class="title">แนะนำตัวสมาชิกในกลุ่ม</h1>
+
+<div class="container">
+  <!-- สมาชิกคนที่ 1 -->
   <div class="card">
-    <!-- การ์ดรูปภาพ -->
-    <div class="photo-card">
-      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800&auto=format&fit=crop" alt="รูปโปรไฟล์">
+    <div class="photo">
+      <img src="9ce1ada2-901d-4981-87f1-229c7f31f5fa.jpg" alt="โปรไฟล์คนที่ 1">
     </div>
-
-    <!-- เนื้อหา -->
     <div class="content">
-      <h1 class="name">ชื่อ-นามสกุล นักศึกษา</h1>
-      <div class="sid">รหัสนักศึกษา: 65XXXXXXXX</div>
-
+      <h1 class="name">นางสาวสุภัสสรา สิทธิวงค์</h1>
+      <div class="sid">รหัสนักศึกษา: 67319010024</div>
       <div class="section">
-        <h2>ประวัติ / แนะนำตัว</h2>
-        <p>
-          สวัสดีค่ะ/ครับ ฉันชื่อ …… กำลังศึกษาอยู่ที่ …… คณะ …… สาขา …… 
-          สนใจด้าน …… มีทักษะพื้นฐาน เช่น HTML, CSS, JavaScript 
-          และการทำงานร่วมกันเป็นทีม
-        </p>
+        <h2>ประวัติ</h2>
+         <p>กำลังศึกษาอยู่ที่ วิทยาลัยเทคนิคลำปาง ระดับชั้น ปวส.2</p>
+        <button class="btn" onclick="openModal('modal1')">อ่านต่อ</button>
       </div>
-
       <div class="section">
-        <h2>ข้อมูลพื้นฐาน</h2>
-        <div class="list">
-          <div class="item">
-            <span class="label">สถาบัน</span>
-            <span>มหาวิทยาลัย / วิทยาลัย ของฉัน</span>
-          </div>
-          <div class="item">
-            <span class="label">สาขา</span>
-            <span>เทคโนโลยีสารสนเทศ</span>
-          </div>
-          <div class="item">
-            <span class="label">อีเมล</span>
-            <span>student@example.com</span>
-          </div>
-          <div class="item">
-            <span class="label">ความสนใจ</span>
-            <span>Web Dev, UI/UX, Data</span>
-          </div>
-        </div>
+        <h2>ติดต่อ</h2>
+        <p>Email: supassaa334@gmail.com</p>
       </div>
     </div>
   </div>
+
+  <!-- สมาชิกคนที่ 2 -->
+  <div class="card">
+    <div class="photo">
+      <img src="S__21708831.jpg" alt="โปรไฟล์คนที่ 2">
+    </div>
+    <div class="content">
+      <h1 class="name">นางสาวสุภนิดา แก้วใจ</h1>
+      <div class="sid">รหัสนักศึกษา: 67319010027</div>
+      <div class="section">
+        <h2>ประวัติ</h2>
+        <p>กำลังศึกษาอยู่ที่ วิทยาลัยเทคนิคลำปาง ระดับชั้น ปวส.2</p>
+        <button class="btn" onclick="openModal('modal2')">อ่านต่อ</button>
+      </div>
+      <div class="section">
+        <h2>ติดต่อ</h2>
+        <p>Email: supanida150748@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 1 -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal1')">&times;</span>
+    <h2>นางสาวสุภัสสรา สิทธิวงค์</h2>
+ <p> รหัสนักศึกษา: 6512345679<p> 
+      กำลังศึกษาอยู่ที่ วิทยาลัยเทคนิคลำปาง ระดับชั้น ปวส.2 สาขานักพัฒนาซอฟแวร์คอมพิวเตอร์, แผนกเทคโนโลยีสารสนเทศ <p> 
+  </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('modal2')">&times;</span>
+    <h2>สุภนิดา แก้วใจ</h2>
+     <p> รหัสนักศึกษา: 6512345679<p> 
+      กำลังศึกษาอยู่ที่ วิทยาลัยเทคนิคลำปาง ระดับชั้น ปวส.2 สาขานักพัฒนาซอฟแวร์คอมพิวเตอร์, แผนกเทคโนโลยีสารสนเทศ <p> 
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+  window.onclick = function(event) {
+    if(event.target.classList.contains('modal')){
+      event.target.style.display = "none";
+    }
+  }
+</script>
+
 </body>
 </html>
